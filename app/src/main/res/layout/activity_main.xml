@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-20dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editEmail"
+        android:layout_width="305dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="98dp"
+        android:hint="Sähköpostiosoite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstname"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editFirstname"
+        android:layout_width="305dp"
+        android:layout_height="43dp"
+        android:hint="Etunimi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editLastName"
+        android:layout_width="305dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="28dp"
+        android:hint="Sukunimi"
+        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstname"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/listUsers"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:text="Listaa käyttäjät"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <Button
+        android:id="@+id/addUser"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:text="Lisää käyttäjä"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <RadioGroup
+        android:id="@+id/degreeGroup"
+        android:layout_width="229dp"
+        android:layout_height="203dp"
+        android:checkedButton="@id/titeButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418">
+
+        <RadioButton
+            android:id="@+id/titeButton"
+            android:layout_width="228dp"
+            android:layout_height="51dp"
+            android:onClick="checkButton"
+            android:text="Tietotekniikka" />
+
+        <RadioButton
+            android:id="@+id/tutaButton"
+            android:layout_width="228dp"
+            android:layout_height="51dp"
+            android:onClick="checkButton"
+            android:text="Tuotantotalous" />
+
+        <RadioButton
+            android:id="@+id/lateButton"
+            android:layout_width="228dp"
+            android:layout_height="51dp"
+            android:onClick="checkButton"
+            android:text="Laskennallinen tekniikka" />
+
+        <RadioButton
+            android:id="@+id/sateButton"
+            android:layout_width="228dp"
+            android:layout_height="51dp"
+            android:onClick="checkButton"
+            android:text="Sähkötekniikka" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="228dp"
+        android:layout_height="51dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="228dp"
+        android:layout_height="51dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="228dp"
+        android:layout_height="51dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="228dp"
+        android:layout_height="51dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.785" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
