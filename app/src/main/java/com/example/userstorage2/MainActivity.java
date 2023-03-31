@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox phd;
     private CheckBox sMaster;
     private Context context;
-    private Button x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +43,6 @@ public class MainActivity extends AppCompatActivity {
         di = findViewById(R.id.checkDI);
         phd = findViewById(R.id.checkPhd);
         sMaster = findViewById(R.id.checkSwim);
-
-
-        x = findViewById(R.id.xButton);
-        x.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                formatFile();
-            }
-        });
 
         UserStorage s = UserStorage.getInstance();
 
@@ -116,10 +106,5 @@ public class MainActivity extends AppCompatActivity {
     private void changeActivity(){
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
-    }
-
-    public void formatFile(){
-        File file = new File("/data/data/com.example.userstorage2/files/users.data");
-        file.delete();
     }
 }

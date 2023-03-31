@@ -155,15 +155,4 @@
         app:layout_constraintTop_toBottomOf="@+id/checkPhd"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/xButton"
-        android:layout_width="43dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:text="x"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
