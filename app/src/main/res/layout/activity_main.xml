@@ -109,51 +109,61 @@
     </RadioGroup>
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkKandi"
         android:layout_width="228dp"
         android:layout_height="51dp"
-        android:text="CheckBox"
+        android:text="Kandidaatin tutkinto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintTop_toBottomOf="@+id/degreeGroup"
+        app:layout_constraintVertical_bias="0.027" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkDI"
         android:layout_width="228dp"
         android:layout_height="51dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Diplomi-insinöörin tutkinto"
+        app:layout_constraintBottom_toTopOf="@+id/checkPhd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/checkKandi"
         app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkPhd"
         android:layout_width="228dp"
         android:layout_height="51dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="532dp"
+        android:text="Tekniikan tohtorin tutkinto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/checkSwim"
         android:layout_width="228dp"
         android:layout_height="51dp"
-        android:text="CheckBox"
+        android:text="Uimamaisteri"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintTop_toBottomOf="@+id/checkPhd"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/xButton"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:text="x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

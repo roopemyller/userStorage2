@@ -10,7 +10,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
-    TextView name, email, degree;
+    TextView name, email, degree, completedDegrees;
 
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);

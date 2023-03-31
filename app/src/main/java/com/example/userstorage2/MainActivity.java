@@ -6,13 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.textservice.TextInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Button goToListView;
@@ -20,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText firstname;
     private TextInputEditText lastname;
     private TextInputEditText email;
-
     private RadioGroup degreeGroup;
     private RadioButton degree;
-
+    private CheckBox kandi;
+    private CheckBox di;
+    private CheckBox phd;
+    private CheckBox sMaster;
     private Context context;
-
+    private Button x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +40,58 @@ public class MainActivity extends AppCompatActivity {
         lastname = findViewById(R.id.editLastName);
         email = findViewById(R.id.editEmail);
         degreeGroup = findViewById(R.id.degreeGroup);
+        kandi = findViewById(R.id.checkKandi);
+        di = findViewById(R.id.checkDI);
+        phd = findViewById(R.id.checkPhd);
+        sMaster = findViewById(R.id.checkSwim);
+
+
+        x = findViewById(R.id.xButton);
+        x.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                formatFile();
+            }
+        });
 
         UserStorage s = UserStorage.getInstance();
 
         context = MainActivity.this;
 
+        // Load users from file
         s.loadUsers(context);
+
         addUser = findViewById(R.id.addUser);
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int degreeId = degreeGroup.getCheckedRadioButtonId();
                 degree = findViewById(degreeId);
-                s.addUser(new User(firstname.getText().toString(), lastname.getText().toString(), email.getText().toString(), degree.getText().toString()));
+
+                ArrayList<String> completedDegrees = new ArrayList<>();
+
+                boolean kandiIsChecked = kandi.isChecked();
+                boolean diIsChecked = di.isChecked();
+                boolean phdiIsChecked = phd.isChecked();
+                boolean sMasteriIsChecked = sMaster.isChecked();
+
+                if(kandiIsChecked){
+                    completedDegrees.add("Kandidaatin tutkinto");
+                }
+                if(diIsChecked){
+                    completedDegrees.add("Diplomi-insinöörin tutkinto");
+                }
+                if(phdiIsChecked){
+                    completedDegrees.add("Tekniikan tohtorin tutkinto");
+                }
+                if(sMasteriIsChecked){
+                    completedDegrees.add("Uimamaisteri");
+                }
+
+                s.addUser(new User(firstname.getText().toString(), lastname.getText().toString(), email.getText().toString(), degree.getText().toString(), completedDegrees));
+                completedDegrees.clear();
+
+                // Save users to file
                 s.saveUsers(context);
             }
         }
@@ -56,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
         goToListView = findViewById(R.id.listUsers);
         goToListView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 changeActivity();
             }
         });
@@ -71,5 +116,10 @@ public class MainActivity extends AppCompatActivity {
     private void changeActivity(){
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
+    }
+
+    public void formatFile(){
+        File file = new File("/data/data/com.example.userstorage2/files/users.data");
+        file.delete();
     }
 }

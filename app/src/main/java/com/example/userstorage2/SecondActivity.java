@@ -27,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         recyclerView = findViewById(R.id.userListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new UserListAdapter(getApplicationContext(), s.getUsers()));

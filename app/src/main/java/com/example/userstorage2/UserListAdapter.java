@@ -22,14 +22,23 @@ public class UserListAdapter extends RecyclerView.Adapter<UserViewHolder> {
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new UserViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view, parent, false));
+        return new UserViewHolder(LayoutInflater.from(context).inflate(R.layout.user_view_degrees, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+
         holder.name.setText(users.get(position).getFirstName() + " " + users.get(position).getLastName());
         holder.email.setText(users.get(position).getEmail());
-        holder.degree.setText(users.get(position).getDegreeProgram());
+        String degreeText = users.get(position).getDegreeProgram();
+
+        if (!users.get(position).getCompletedDegrees().isEmpty()){
+            degreeText += "\nTutkinnot:";
+            for (String s : users.get(position).getCompletedDegrees()){
+                degreeText += "\n - " + s;
+            }
+        }
+        holder.degree.setText(degreeText);
     }
 
     @Override
